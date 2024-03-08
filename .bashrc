@@ -122,6 +122,7 @@ alias nvim='/opt/nvim/nvim'
 
 #custom alias
 alias lsa='ls -la'
+alias venv='source ./.venv/bin/activate'
 
 #starship
 eval "$(starship init bash)"
