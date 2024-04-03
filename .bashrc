@@ -116,13 +116,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#nvim
-export PATH="$PATH:/opt/nvim/" 
-alias nvim='/opt/nvim/nvim'
+#paths
+export PATH="$PATH:/opt/nvim/"
 
 #custom alias
 alias lsa='ls -la'
 alias venv='source ./.venv/bin/activate'
+alias redis='/opt/redis/RedisInsight-linux-x86_64.AppImage'
 
 #starship
 eval "$(starship init bash)"
