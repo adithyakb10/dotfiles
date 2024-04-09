@@ -1,0 +1,11 @@
+[user]
+	name = Adithya K B
+	email = adithyakb93@gmail.com
+	signingkey = 52B0AAFE0881F626
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/bin/gpg
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
