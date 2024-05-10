@@ -123,7 +123,14 @@ export PATH="$PATH:/opt/nvim/"
 alias lsa='ls -la'
 alias venv='source ./.venv/bin/activate'
 alias redis='/opt/redis/RedisInsight-linux-x86_64.AppImage'
+alias wasp='~/.local/bin/wasp'
+alias sshd='systemctl start sshd'
+alias flyctl='/home/adithya/.fly/bin/flyctl' 
 
 #starship
 eval "$(starship init bash)"
 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
