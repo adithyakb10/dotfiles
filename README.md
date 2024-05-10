@@ -24,7 +24,7 @@ To use these dotfiles, follow these steps:
    chmod +x install.sh && ./install.sh
    ```
 
-   The installation script will create symbolic links to the dotfiles in your home directory, replacing any existing files with the same names.
+   The installation script will create symbolic links to the dotfiles in your home directory, replacing any existing files with the same names and will install necessary dependencies
 
 ## Usage
 

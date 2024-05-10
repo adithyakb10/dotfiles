@@ -2,6 +2,8 @@
 
 echo "Welcome to Linux setup"
 echo "----------------------"
+echo "Updating System, Provide password for sudo."
+
 apt update && apt upgrade
 
 # Check if stow is installed
@@ -24,6 +26,8 @@ stow --adopt -v .  # This will make stow manage dotfiles in the current director
 echo "------------------------"
 echo "Initialization complete."
 
+#dracula theme installation
+
 echo "-------------------------------------------"
 echo "Do you wish to install dracula theme: [y/n]"
 read dracula
@@ -33,22 +37,71 @@ then
   apt install curl && apt install unzip &&
   curl -L https://github.com/dracula/gtk/archive/master.zip -o master.zip &&
   unzip ./master.zip &&
-  mv ./gtk-master ~/.themes/pokemon
+  mv ./gtk-master ~/.themes/dracula &&
+  rm ./master.zip
   echo "---------------------------------------"
   echo "Dracula theme is successfully installed"
 else
   echo "-----------------------------------"
   echo "Skipping Dracula theme installation"
 fi
+
+#vscode installation
+
 echo "------------------------------------------"
-echo "Do you wish to install vs-code theme: [y/n]"
+echo "Do you wish to install vs-code: [y/n]"
 read code
 if [[ $code == "y" || $code == "Y" ]]
 then
   curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -o code.deb &&
- sudo dpkg -i code.deb
+ sudo dpkg -i code.deb &&
+ rm code.deb
 else
   echo "----------------------------"
   echo "Skipping VSCode installation"
 fi
 
+#firacode installation
+
+echo "-------------------------------------------"
+echo "Do you wish to install firacode font: [y/n]"
+read font
+if [[ $font == "y" || $font == "Y" ]]
+then
+  curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip -o firacode.zip &&
+  unzip firacode.zip -d ./firacode &&
+  mv firacode ~/.fonts/FiraCode &&
+  rm firacode.zip
+  echo "----------------------------"
+  echo "Font installation successfull"
+else
+  echo "--------------------------"
+  echo "Skipping font installation"
+fi
+
+#Set up starship
+echo "-------------------------------------------"
+echo "Do you wish to install starship prompt: [y/n]"
+read prompt
+if [[ $prompt == "y" || $prompt == "Y" ]]
+then
+  curl -sS https://starship.rs/install.sh | sh
+else
+  echo "------------------------------"
+  echo "Skipping starship installation"
+fi
+
+#Setting up git client
+echo "-------------------------------------------"
+echo "Do you wish to set up github client: [y/n]"
+read gh
+if [[ $gh == "y" || $gh == "Y" ]]
+then
+  sudo apt install gh &&
+  gh auth login
+  #Login with your credentials
+else
+  echo "Skipping github client setup"
+fi
+
+echo "Linux setup has been completed!"
